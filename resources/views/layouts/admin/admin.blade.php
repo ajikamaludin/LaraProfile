@@ -54,6 +54,19 @@
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE -->
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+{{-- CKEditor --}}
+<script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+
+@if(Request::is('admin/posts/create') || Request::is('admin/posts/{id}/edit') )
+<script>
+    CKEDITOR.replace( 'description', {
+        extraPlugins: 'filebrowser, uploadimage',
+        filebrowserBrowseUrl: '/admin/image/browser',
+        filebrowserUploadUrl: '/admin/image/upload',
+        uploadUrl: '/admin/image/upload',
+    } );
+</script>
+@endif
 
 <!-- OPTIONAL SCRIPTS -->
 {{-- <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script> --}}

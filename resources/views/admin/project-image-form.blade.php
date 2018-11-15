@@ -35,7 +35,7 @@
                     <input type="text" class="form-control" id="name" name="name" minlength="4" required value="{{ isset($category) ? $category->name : '' }}">
                   </div>
                   <div class="form-group">
-                    <label for="cover">Cover Image</label>
+                    <label for="cover">File input</label>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input" id="cover" name="coverImg" {{ isset($category) ? '' : 'required' }}>
@@ -51,7 +51,6 @@
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary" name="submit">Save</button>
-                  <a class="btn btn-default" href="{{ route('categories.list') }}">Cancel</a>
                 </div>
               </form>
             </div>

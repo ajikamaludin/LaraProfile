@@ -24,6 +24,10 @@ Route::namespace('Admin')->group(function () {
             //Projects
             Route::get('posts', 'ProjectsController@index')->name('posts.list');
             Route::get('posts/create', 'ProjectsController@create')->name('posts.create');
+            //CKeditor
+            Route::post('image/upload', 'ProjectsController@ckupload');
+            Route::get('image/browser', 'ProjectsController@ckbrowser');
+
             Route::post('posts/store', 'ProjectsController@store')->name('posts.store');
             Route::get('posts/{id}/edit', 'ProjectsController@edit')->name('posts.edit');
             Route::post('posts/{id}/update', 'ProjectsController@update')->name('posts.update');
@@ -47,6 +51,8 @@ Route::namespace('Admin')->group(function () {
             Route::get('pages', 'PagesController@index')->name('pages.list');
             //Settings
             Route::get('settings', 'SettingController@index')->name('admin.settings');
+
+            
         });
     });
 });
