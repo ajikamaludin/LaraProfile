@@ -24,7 +24,7 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a href="{{ route('posts.list') }}" class="nav-link {{ Request::is('admin/post') ? 'active' : '' }} {{ Request::is('admin/post/create') ? 'active' : '' }}">
+          <a href="{{ route('posts.list') }}" class="nav-link {{ Request::is('admin/posts') ? 'active' : '' }} {{ Request::is('admin/posts/create') ? 'active' : '' }}">
               <i class="nav-icon fa fa-newspaper-o"></i>
               <p>
                 Posts

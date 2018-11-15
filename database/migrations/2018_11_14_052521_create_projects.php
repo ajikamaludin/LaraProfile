@@ -18,6 +18,7 @@ class CreateProjects extends Migration
             $table->string('title', 255);
             $table->string('slide', 255);
             $table->text('description');
+            $table->integer('id_category');
             $table->boolean('status');
             $table->text('slug');
 

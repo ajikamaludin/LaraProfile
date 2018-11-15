@@ -40,7 +40,7 @@ class CategoriesController extends Controller
         $image = $request->file('coverImg');
         $category = new Category();
         $category->name = $request->name;
-        if($image = $image->move('storage/upload/', time().'.'.$image->getClientOriginalExtension())){
+        if($image = $image->move('storage/upload/', str_random(40).'.'.$image->getClientOriginalExtension())){
             $category->cover = $image->getPathname();
             if($category->save()){
                 return redirect()->route('categories.list')->with('success','New Category has been Added');
@@ -85,7 +85,7 @@ class CategoriesController extends Controller
         $category->name = $request->name;
         if($request->hasFile('coverImg')){
             $image = $request->file('coverImg');
-            if($image = $image->move('storage/upload/', time().'.'.$image->getClientOriginalExtension())){
+            if($image = $image->move('storage/upload/', str_random(40).'.'.$image->getClientOriginalExtension())){
                 $category->cover = $image->getPathname();
                 if($category->update()){
                     return redirect()->route('categories.list')->with('success','Category has been Updated');

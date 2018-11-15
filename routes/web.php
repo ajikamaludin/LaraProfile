@@ -22,12 +22,12 @@ Route::namespace('Admin')->group(function () {
             Route::get('dashboard', 'DashboardController@index')->name('admin.dashboard');
 
             //Projects
-            Route::get('posts', 'PostController@index')->name('posts.list');
-            // Route::get('posts/create', 'ProjectController@create')->name('posts.create');
-            // Route::post('posts/store', 'ProjectController@store')->name('posts.store');
-            // Route::get('posts/{id}/edit', 'ProjectController@edit')->name('posts.edit');
-            // Route::post('posts/{id}/update', 'ProjectController@update')->name('posts.update');
-            // Route::get('posts/{id}/delete', 'ProjectController@destroy')->name('posts.destroy');
+            Route::get('posts', 'ProjectsController@index')->name('posts.list');
+            Route::get('posts/create', 'ProjectsController@create')->name('posts.create');
+            Route::post('posts/store', 'ProjectsController@store')->name('posts.store');
+            Route::get('posts/{id}/edit', 'ProjectsController@edit')->name('posts.edit');
+            Route::post('posts/{id}/update', 'ProjectsController@update')->name('posts.update');
+            Route::get('posts/{id}/delete', 'ProjectsController@destroy')->name('posts.destroy');
             //view-image
             //add image
             //delete image

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\Project;
 class ProjectsController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        //
+        $projects = Project::orderBy('created_at','desc')->paginate(10);
+        return view('admin.project-list', ['projects' => $projects]);
     }
 
     /**

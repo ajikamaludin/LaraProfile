@@ -20,15 +20,15 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-10 offset-md-1">
-              <a href="{{ route('categories.create') }}" class="col-lg-1 btn btn-primary" style="margin-bottom:20px;">New Category</a>
+              <a href="{{ route('posts.create') }}" class="col-lg-1 btn btn-primary" style="margin-bottom:20px;">New Post</a>
               @include('layouts.admin.flash-message')
               <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">Categories</h3>
+                    <h3 class="card-title">Posts</h3>
     
                     <div class="card-tools">
                       <ul class="pagination pagination-sm m-0 float-right">
-                          {{ $categories->links() }}
+                          {{ $projects->links() }}
                       </ul>
                     </div>
                   </div>
@@ -38,23 +38,37 @@
                       <tbody>
                       <tr>
                         <th style="width: 10px">#</th>
-                        <th>Name</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Status</th>
                         <th style="width: 250px">Action</th>
                       </tr>
-                      @if ($categories->count() == 0)
+                      @if ($projects->count() == 0)
                           <tr>
                             <td></td>
                             <td>Sorry no record found.</td>
                             <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                           </tr>
                       @else
-                        @foreach ($categories as $category)
+                        @foreach ($projects as $project)
                         <tr>
-                          <td>{{ $category->id }}</td>
-                          <td>{{ $category->name }}</td>
+                          <td>{{ $project->id }}</td>
+                          <td>{{ $project->title }}</td>
+                          <td>{{ 'Manusia' }}</td>
                           <td>
-                              <a href="{{ route('categories.edit', $category->id) }}" style="margin: 0px 10px 0px 10px"> <i class="fa fa-pencil"></i> Edit </a>
-                              <a href="{{ route('categories.destroy', $category->id) }}" onclick="return confirm('Yakin akan menghapus item ? item terkait akan ikut dihapus')"> <i class="nav-icon fa fa-trash"></i> Delete </a>
+                            @if ($project->status)
+                              <span class="badge badge-success">Publish</span>
+                            @else
+                              <span class="badge badge-danger">Draft</span>
+                            @endif
+                          </td>
+                          <td>
+                              <a href="{{ route('posts.edit', $project->id) }}" style="margin: 0px 10px 0px 10px"> <i class="fa fa-pencil"></i> Edit </a>
+                              <a href="{{ route('posts.edit', $project->id) }}" style="margin: 0px 10px 0px 10px"> <i class="fa fa-eye"></i> Add Image </a>
+                              <a href="{{ route('posts.destroy', $project->id) }}" onclick="return confirm('Yakin akan menghapus item ? item terkait akan ikut dihapus')"> <i class="nav-icon fa fa-trash"></i> Delete </a>
                           </td>
                         </tr>
                         @endforeach
