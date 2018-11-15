@@ -23,11 +23,11 @@ Route::namespace('Admin')->group(function () {
 
             //Projects
             Route::get('posts', 'PostController@index')->name('posts.list');
-            // Route::get('projects/create', 'ProjectController@create')->name('projects.create');
-            // Route::post('projects/store', 'ProjectController@store')->name('projects.store');
-            // Route::get('projects/{id}/edit', 'ProjectController@edit')->name('projects.edit');
-            // Route::post('projects/{id}/update', 'ProjectController@update')->name('projects.update');
-            // Route::get('projects/{id}/delete', 'ProjectController@destroy')->name('projects.destroy');
+            // Route::get('posts/create', 'ProjectController@create')->name('posts.create');
+            // Route::post('posts/store', 'ProjectController@store')->name('posts.store');
+            // Route::get('posts/{id}/edit', 'ProjectController@edit')->name('posts.edit');
+            // Route::post('posts/{id}/update', 'ProjectController@update')->name('posts.update');
+            // Route::get('posts/{id}/delete', 'ProjectController@destroy')->name('posts.destroy');
             //view-image
             //add image
             //delete image
@@ -37,11 +37,11 @@ Route::namespace('Admin')->group(function () {
             
             //Categories
             Route::get('categories', 'CategoriesController@index')->name('categories.list');
-            // Route::get('categories/create', 'CategoriesController@create')->name('categories.create');
-            // Route::post('categories/store', 'CategoriesController@store')->name('categories.store');
-            // Route::get('categories/{id}/edit', 'CategoriesController@edit')->name('categories.edit');
-            // Route::post('categories/{id}/update', 'CategoriesController@update')->name('categories.update');
-            // Route::get('categories/{id}/delete', 'CategoriesController@destroy')->name('categories.destroy');
+            Route::get('categories/create', 'CategoriesController@create')->name('categories.create');
+            Route::post('categories/store', 'CategoriesController@store')->name('categories.store');
+            Route::get('categories/{id}/edit', 'CategoriesController@edit')->name('categories.edit');
+            Route::post('categories/{id}/update', 'CategoriesController@update')->name('categories.update');
+            Route::get('categories/{id}/delete', 'CategoriesController@destroy')->name('categories.destroy');
 
             //Pages
             Route::get('pages', 'PagesController@index')->name('pages.list');

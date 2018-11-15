@@ -8,7 +8,7 @@
           <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+            <a href="#" class="d-block">{{ Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -24,7 +24,7 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a href="{{ route('posts.list') }}" class="nav-link {{ Request::is('admin/post') ? 'active' : '' }} {{ Request::is('admin/post/new') ? 'active' : '' }}">
+            <a href="{{ route('posts.list') }}" class="nav-link {{ Request::is('admin/post') ? 'active' : '' }} {{ Request::is('admin/post/create') ? 'active' : '' }}">
               <i class="nav-icon fa fa-newspaper-o"></i>
               <p>
                 Posts
@@ -32,7 +32,7 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a href="{{ route('categories.list') }}" class="nav-link {{ Request::is('admin/categories') ? 'active' : '' }} {{ Request::is('admin/categories/new') ? 'active' : '' }}">
+            <a href="{{ route('categories.list') }}" class="nav-link {{ Request::is('admin/categories') ? 'active' : '' }} {{ Request::is('admin/categories/create') ? 'active' : '' }}">
               <i class="nav-icon fa fa-tag"></i>
               <p>
                 Categories
@@ -40,8 +40,8 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a href="{{ route('pages.list') }}" class="nav-link {{ Request::is('admin/pages') ? 'active' : '' }} {{ Request::is('admin/pages/new') ? 'active' : '' }}">
-              <i class="nav-icon fa fa-tag"></i>
+            <a href="{{ route('pages.list') }}" class="nav-link {{ Request::is('admin/pages') ? 'active' : '' }} {{ Request::is('admin/pages/create') ? 'active' : '' }}">
+              <i class="nav-icon fa fa-book"></i>
               <p>
                 Pages
               </p>
