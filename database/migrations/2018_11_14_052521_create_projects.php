@@ -23,10 +23,10 @@ class CreateProjects extends Migration
             $table->text('slug');
 
             //penting ngak ?
-            $table->string('tahun_perancangan', 4)->nullable();
-            $table->string('tahun_pembangunan', 4)->nullable();
-            $table->string('luas_tanah', 4)->nullable();
-            $table->string('luas_bangunan', 4)->nullable();
+            $table->string('tahun_perancangan', 100)->nullable();
+            $table->string('tahun_pembangunan', 100)->nullable();
+            $table->string('luas_tanah', 100)->nullable();
+            $table->string('luas_bangunan', 100)->nullable();
 
             $table->timestamps();
             $table->softDeletes();

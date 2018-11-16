@@ -33,7 +33,7 @@
                   {{-- title --}}
                   <div class="form-group">
                     <label for="name">Title</label>
-                    <input type="text" class="form-control" id="name" name="name" minlength="4" required value="{{ isset($project) ? $project->title : '' }}">
+                    <input type="text" class="form-control" id="title" name="title" minlength="4" required value="{{ isset($project) ? $project->title : '' }}">
                   </div>
                   {{-- slide / cover--}}
                   <div class="form-group">
@@ -88,28 +88,28 @@
                       {{-- tahun perancangan  --}}
                       <div class="form-group">
                         <label>Tahun Perancangan</label>
-                        <input type="text" class="form-control" name="tahunPerancangan">
+                        <input type="text" class="form-control" name="tahunPerancangan" maxlength="4">
                       </div>
                     </div>
                     <div class="col-md-3">
                       {{-- tahun pembangunan  --}}
                       <div class="form-group">
                         <label>Tahun Pembangunan</label>
-                        <input type="text" class="form-control" name="tahunPembangunan">
+                        <input type="text" class="form-control" name="tahunPembangunan" maxlength="4">
                       </div>
                     </div>
                     <div class="col-md-3">
                       {{-- luas tanah --}}
                       <div class="form-group">
                         <label>Luas Tanah</label>
-                        <input type="text" class="form-control" name="luasTanah">
+                        <input type="text" class="form-control" name="luasTanah" maxlength="4">
                       </div>
                     </div>
                     <div class="col-md-3">
                       {{-- luas bangunan --}}
                       <div class="form-group">
                         <label>Luas Bangunan</label>
-                        <input type="text" class="form-control" name="luasBangunan">
+                        <input type="text" class="form-control" name="luasBangunan" maxlength="4">
                       </div>
                     </div>
                   </div>

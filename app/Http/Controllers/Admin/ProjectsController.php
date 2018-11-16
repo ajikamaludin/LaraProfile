@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 use App\Models\Project;
+
 class ProjectsController extends Controller
 {
     /**
@@ -38,7 +41,31 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $slide = $request->file('slideImg');
+        $project = new Project();
+        $project->title = $request->title;
+        $project->slug = str_slug($project->title);
+        $project->description = $request->description;
+        $project->status = $request->status;
+        $project->id_category = $request->category;
+        if($slide = $slide->move('storage/slide/', str_random(40).'.'.$slide->getClientOriginalExtension())){
+            $project->slide = $slide->getPathname();
+
+            $project->tahun_perancangan = $request->tahunPerancangan;
+            $project->tahun_pembangunan = $request->tahunPembangunan;
+            $project->luas_tanah = $request->luasTanah;
+            $project->luas_bangunan = $request->luasBangunan;
+
+            if($project->save()){
+                if($project->status){
+                    return redirect()->route('posts.images', $project->id )->with('success','New Post has been Publish');
+                }else{
+                    return redirect()->route('posts.images', $project->id )->with('success','New Post has been Saved');
+                }
+            }
+        }
+        return redirect()->route('posts.list')->with('danger','Something went wrong');
+        
     }
 
     /**
@@ -86,11 +113,16 @@ class ProjectsController extends Controller
         //
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function ckupload(Request $request)
     {
         $image = $request->file('upload');
         $name = str_random(40).'.'.$image->getClientOriginalExtension();
-        if($image = $image->move('storage/upload/', $name)){            
+        if($image = $image->move('storage/posts/', $name)){            
             return json_encode([
                 'uploaded' => 1,
                 'fileName' => $image,
@@ -105,14 +137,38 @@ class ProjectsController extends Controller
         ]);
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function ckbrowser()
     {
         $datas = [];
-        $directory = 'public/upload/';
+        $directory = 'public/posts/';
         $files = Storage::allFiles($directory);
         foreach ($files as $file) {
             $datas[] = Storage::url($file);    
         }
         return view('admin.file-manager', ['files' => $datas]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function images($id)
+    {
+        return view('admin.project-image-form',['id' => $id]);
+    }
+
+    public function upload(Request $request)
+    {
+        return response()->json([
+            'tmp-attr' => implode(" - ",$request->file()),
+            'success',
+            200
+        ]);
     }
 }

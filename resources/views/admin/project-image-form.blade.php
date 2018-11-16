@@ -23,36 +23,20 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Category</h3>
+                <h3 class="card-title">Post Images</h3>
               </div>
               <!-- /.card-header -->
-              <!-- form start -->
-              <form role="form" enctype="multipart/form-data" method="POST" action="{{ isset($category) ? route('categories.update', $category->id) : route('categories.store') }}">
-                @csrf
                 <div class="card-body">
-                  <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" minlength="4" required value="{{ isset($category) ? $category->name : '' }}">
-                  </div>
-                  <div class="form-group">
-                    <label for="cover">File input</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="cover" name="coverImg" {{ isset($category) ? '' : 'required' }}>
-                        <label class="custom-file-label" for="cover">Choose file</label>
-                      </div>
+                <!-- form start -->
+                  <form role="form" enctype="multipart/form-data" method="POST" action="{{ route('posts.images.upload', $id) }}" class="dropzone" id="dropzone">
+                    @csrf
+                    <div class="dz-message needsclick">    
+                        Drop some image here or click to upload.
                     </div>
-                  </div>
-                  @isset($category)
-                    <img src="{{ asset($category->cover) }}" alt="Cover Category" height="200px">
-                  @endisset
-                </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary" name="submit">Save</button>
-                </div>
-              </form>
+                  </form>
+                  <a class="btn btn-primary col-md-1" href="{{ route('posts.list') }}" style="margin:10px 10px 0px 0px">Save</a>
+              </div>
+              <!-- /.card-body -->
             </div>
             <!-- /.card -->
 

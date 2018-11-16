@@ -13,6 +13,10 @@
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+
+  {{-- Dropzone --}}
+  <link rel="stylesheet" href="{{ asset('plugins/dropzone/dropzone.css') }}">
+
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -55,11 +59,12 @@
 <!-- AdminLTE -->
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
 {{-- CKEditor --}}
-<script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 
 @if(Request::is('admin/posts/create') || Request::is('admin/posts/{id}/edit') )
 <script>
     CKEDITOR.replace( 'description', {
+        height: 700,
         extraPlugins: 'filebrowser, uploadimage',
         filebrowserBrowseUrl: '/admin/image/browser',
         filebrowserUploadUrl: '/admin/image/upload',
@@ -67,7 +72,28 @@
     } );
 </script>
 @endif
-
+{{-- dropzone --}}
+<script src="{{ asset('plugins/dropzone/dropzone.js') }}"></script>
+<script>
+  Dropzone.autoDiscover = false;
+$(function() {
+  // Now that the DOM is fully loaded, create the dropzone, and setup the
+  // event listeners
+  var myDropzone = new Dropzone("#dropzone");
+  
+  myDropzone.on("addedfile", function(file, response) {
+    console.log(file)
+    file.previewElement.addEventListener("click", function() {
+      console.log(file)
+      myDropzone.removeFile(file);
+    });
+  });
+  myDropzone.on("success", function(file, response){
+    console.log(response);
+    file.response = response;
+  });
+})
+</script>
 <!-- OPTIONAL SCRIPTS -->
 {{-- <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script> --}}
 {{-- <script src="{{ asset('dist/js/demo.js') }}"></script> --}}

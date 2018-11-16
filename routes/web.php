@@ -27,14 +27,15 @@ Route::namespace('Admin')->group(function () {
             //CKeditor
             Route::post('image/upload', 'ProjectsController@ckupload');
             Route::get('image/browser', 'ProjectsController@ckbrowser');
+            //Image Post
+            Route::get('posts/{id}/images', 'ProjectsController@images')->name('posts.images');
+            Route::post('posts/{id}/images/upload', 'ProjectsController@upload')->name('posts.images.upload');
 
             Route::post('posts/store', 'ProjectsController@store')->name('posts.store');
             Route::get('posts/{id}/edit', 'ProjectsController@edit')->name('posts.edit');
             Route::post('posts/{id}/update', 'ProjectsController@update')->name('posts.update');
             Route::get('posts/{id}/delete', 'ProjectsController@destroy')->name('posts.destroy');
-            //view-image
-            //add image
-            //delete image
+            
 
             //Menu
             // Route::get('menu', 'MenuController@index')->name('menu.list');
