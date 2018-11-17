@@ -27,7 +27,7 @@ $(document).on('click','.img-galery', function(){
 });
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName("close-modal")[0];
 // Get the modal
 var bgmodal = document.getElementsByClassName("modal")[0];
 
@@ -42,7 +42,7 @@ bgmodal.onclick = function() {
 </script>
 <script>
   $(document).on('click', '.galery-remove', function(){
-      var agree = confirm('Yakin akan menghapus item ?');
+      var agree = confirm('Are you sure you want to delete the item ?');
       if(agree){
         var url = '{{ url()->current() }}';
         var id = $(this).attr('img-id');

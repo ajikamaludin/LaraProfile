@@ -14,4 +14,9 @@ class Project extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function images()
+    {
+        return $this->hasMany('App\Models\ProjectImage','id_project');
+    }
 }

@@ -41,7 +41,7 @@
                     @foreach ($images as $image)
                       <div class="col-md-3" grid-id="{{ $image->id }}">
                         <img class="img-fluid  img-galery" src="{{ asset($image->file_name) }}" alt="">
-                        <button class="btn btn-danger col-md-12 galery-remove" img-id="{{ $image->id }}" onclick="">Delete</button>
+                        <button class="btn btn-danger col-md-12 galery-remove" img-id="{{ $image->id }}">Delete</button>
                       </div>
                     @endforeach
                   </div>

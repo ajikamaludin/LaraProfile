@@ -173,7 +173,8 @@ class ProjectsController extends Controller
     public function images($id)
     {
         $project = Project::find($id);
-        $projectImages = ProjectImage::where(['id_project' => $project->id])->orderBy('created_at', 'desc')->get();
+        // $projectImages = ProjectImage::where(['id_project' => $project->id])->orderBy('created_at', 'desc')->get();
+        $projectImages = $project->images()->orderBy('created_at','desc')->get();
         return view('admin.project-image-form',['id' => $project->id, 
             'name' => $project->title, 
             'images' => $projectImages 

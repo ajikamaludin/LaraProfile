@@ -11,6 +11,13 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run()
     {
-        $projects = factory(App\Models\Project::class, 12)->create();
+        $projects = factory(App\Models\Project::class, 5)->create()->each(function($post){
+            $post->images()->save(factory(App\Models\ProjectImage::class)->create(['id_project' => $post->id]));
+            $post->images()->save(factory(App\Models\ProjectImage::class)->create(['id_project' => $post->id]));
+            $post->images()->save(factory(App\Models\ProjectImage::class)->create(['id_project' => $post->id]));
+            $post->images()->save(factory(App\Models\ProjectImage::class)->create(['id_project' => $post->id]));
+            $post->images()->save(factory(App\Models\ProjectImage::class)->create(['id_project' => $post->id]));
+            $post->images()->save(factory(App\Models\ProjectImage::class)->create(['id_project' => $post->id]));
+        });
     }
 }

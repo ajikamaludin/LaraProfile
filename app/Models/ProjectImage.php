@@ -15,4 +15,9 @@ class ProjectImage extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function post()
+    {
+        return $this->belongsTo('App\Models\Project', 'project_id');
+    }
 }

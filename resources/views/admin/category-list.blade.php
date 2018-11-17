@@ -54,7 +54,7 @@
                           <td>{{ $category->name }}</td>
                           <td>
                               <a href="{{ route('categories.edit', $category->id) }}" style="margin: 0px 10px 0px 10px"> <i class="fa fa-pencil"></i> Edit </a>
-                              <a href="{{ route('categories.destroy', $category->id) }}" onclick="return confirm('Yakin akan menghapus item ? item terkait akan ikut dihapus')"> <i class="nav-icon fa fa-trash"></i> Delete </a>
+                              <a href="{{ route('categories.destroy', $category->id) }}" onclick="return confirm('Are you sure you want to delete the item? related items will also be deleted')"> <i class="nav-icon fa fa-trash"></i> Delete </a>
                           </td>
                         </tr>
                         @endforeach
