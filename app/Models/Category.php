@@ -15,4 +15,9 @@ class Category extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function posts()
+    {
+        return $this->hasMany('App\Models\Project','id_category');
+    }
 }

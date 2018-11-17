@@ -18,6 +18,6 @@ class ProjectImage extends Model
 
     public function post()
     {
-        return $this->belongsTo('App\Models\Project', 'project_id');
+        return $this->belongsTo('App\Models\Project', 'id_project');
     }
 }
