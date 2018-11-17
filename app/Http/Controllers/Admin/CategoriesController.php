@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Validator;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 
@@ -37,6 +38,7 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
+        $this->coverValidate($request);
         $image = $request->file('coverImg');
         $category = new Category();
         $category->name = $request->name;
@@ -46,7 +48,7 @@ class CategoriesController extends Controller
                 return redirect()->route('categories.list')->with('success','New Category has been Added');
             }
         }
-        return redirect()->route('categories.list')->with('danger','Something went wrong');
+        return redirect()->route('categories.list')->with('error','Something went wrong');
     }
 
     /**
@@ -81,6 +83,7 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->coverValidate($request);
         $category = Category::find($id);
         $category->name = $request->name;
         if($request->hasFile('coverImg')){
@@ -95,7 +98,7 @@ class CategoriesController extends Controller
         }else if($category->update()){
             return redirect()->route('categories.list')->with('success','Category has been Updated');
         }
-        return redirect()->route('categories.list')->with('danger','Something went wrong');
+        return redirect()->route('categories.list')->with('error','Something went wrong');
     }
 
     /**
@@ -109,6 +112,16 @@ class CategoriesController extends Controller
         if(Category::find($id)->delete()){
             return back()->with('success','Category has been Deleted');
         }
-        return back()->with('danger','Something went wrong');
+        return back()->with('error','Something went wrong');
+    }
+
+    private function coverValidate(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'coverImg' => 'image'
+        ]);
+        if($validator->fails()){
+            return back()->with('error','Something went wrong');
+        }
     }
 }

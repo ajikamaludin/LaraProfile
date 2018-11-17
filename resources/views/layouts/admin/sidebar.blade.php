@@ -16,7 +16,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item active">
-            <a href="{{ route('admin.dashboard') }}" class="nav-link {{ Request::is('admin/dashboard') ? 'active' : '' }} {{ Request::is('admin') ? 'active' : '' }}">
+            <a href="{{ route('admin.dashboard') }}" class="nav-link {{ Request::is('admin') ? 'active' : '' }} {{ Route::is('admin.dashboard') ? 'active' : '' }}">
               <i class="nav-icon fa fa-dashboard"></i>
               <p>
                 Dashboard
@@ -24,7 +24,7 @@
             </a>
           </li>
           <li class="nav-item active">
-          <a href="{{ route('posts.list') }}" class="nav-link {{ Request::is('admin/posts') ? 'active' : '' }} {{ Request::is('admin/posts/create') ? 'active' : '' }}">
+          <a href="{{ route('posts.list') }}" class="nav-link {{ (Route::is('posts.list') || Route::is('posts.create') || Route::is('posts.edit') || Route::is('posts.images')) ? 'active' : '' }}">
               <i class="nav-icon fa fa-newspaper-o"></i>
               <p>
                 Posts
@@ -32,7 +32,7 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a href="{{ route('categories.list') }}" class="nav-link {{ Request::is('admin/categories') ? 'active' : '' }} {{ Request::is('admin/categories/create') ? 'active' : '' }}">
+            <a href="{{ route('categories.list') }}" class="nav-link {{ (Route::is('categories.list') || Route::is('categories.create') || Route::is('categories.edit') ) ? 'active' : '' }}">
               <i class="nav-icon fa fa-tag"></i>
               <p>
                 Categories
@@ -40,7 +40,7 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a href="{{ route('pages.list') }}" class="nav-link {{ Request::is('admin/pages') ? 'active' : '' }} {{ Request::is('admin/pages/create') ? 'active' : '' }}">
+            <a href="{{ route('pages.list') }}" class="nav-link {{ (Route::is('pages.list') || Route::is('pages.create') || Route::is('pages.edit') ) ? 'active' : '' }}">
               <i class="nav-icon fa fa-book"></i>
               <p>
                 Pages

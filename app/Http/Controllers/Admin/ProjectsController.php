@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Log;
+use Validator;
 use App\Models\Project;
+use App\Models\ProjectImage;
 
 class ProjectsController extends Controller
 {
@@ -64,7 +65,7 @@ class ProjectsController extends Controller
                 }
             }
         }
-        return redirect()->route('posts.list')->with('danger','Something went wrong');
+        return redirect()->route('posts.list')->with('error','Something went wrong');
         
     }
 
@@ -120,13 +121,24 @@ class ProjectsController extends Controller
      */
     public function ckupload(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'upload' => 'image',
+        ]);
+
         $image = $request->file('upload');
         $name = str_random(40).'.'.$image->getClientOriginalExtension();
         if($image = $image->move('storage/posts/', $name)){            
             return json_encode([
                 'uploaded' => 1,
                 'fileName' => $image,
-                'url' => '/storage/upload/'.$name,
+                'url' => '/storage/posts/'.$name,
+            ]);
+        }else if($validator->fails()){
+            return json_encode([
+                'uploaded' => 0,
+                'error' => [
+                    'message' => 'Must be a image file'
+                ]
             ]);
         }
         return json_encode([
@@ -160,15 +172,67 @@ class ProjectsController extends Controller
      */
     public function images($id)
     {
-        return view('admin.project-image-form',['id' => $id]);
+        $project = Project::find($id);
+        $projectImages = ProjectImage::where(['id_project' => $project->id])->orderBy('created_at', 'desc')->get();
+        return view('admin.project-image-form',['id' => $project->id, 
+            'name' => $project->title, 
+            'images' => $projectImages 
+        ]);
     }
 
-    public function upload(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function upload(Request $request, $id)
     {
-        return response()->json([
-            'tmp-attr' => implode(" - ",$request->file()),
-            'success',
-            200
+        $validator = Validator::make($request->all(), [
+            'file' => 'image',
         ]);
+        $project = Project::find($id);
+        if($project->count() > 0 && (!$validator->fails())){
+            $image = $request->file('file');
+            $name = str_random(40).'.'.$image->getClientOriginalExtension();
+            if($image = $image->move('storage/posts/', $name)){
+                $post_images = new ProjectImage();
+                $post_images->id_project = $project->id;
+                $post_images->file_name = $image->getPathname();
+                if($post_images->save()){
+                    return response()->json([
+                            'data' => [
+                                'id' => $post_images->id,
+                                'url' => asset($image->getPathname()),
+                            ],
+                            'message' => 'Success Added Image',
+                            200
+                        ], 200);
+                }
+            }
+        }
+        //Error Response 500
+        return response()->json([
+            'message' => 'Something went wrongs'
+        ], 500);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyImage($idProject, $idImage)
+    {
+        // TODO : remove image from database, return 200
+        $projectImage = ProjectImage::where(['id_project' => $idProject,'id' => $idImage]);
+        if($projectImage->count() == 1 && $projectImage->delete()){
+            return response()->json([
+                'Success Deleted Image'
+            ], 200);
+        }
+        return response()->json([
+            'Something went wrongs '
+        ], 500);
     }
 }

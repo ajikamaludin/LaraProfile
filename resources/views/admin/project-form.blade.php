@@ -117,7 +117,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary" name="submit">Next Add Image</button>
+                  <button type="submit" class="btn btn-primary" name="submit">Save & Add Images</button>
                   <a class="btn btn-default" href="{{ route('posts.list') }}">Cancel</a>
                 </div>
               </form>

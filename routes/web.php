@@ -30,6 +30,7 @@ Route::namespace('Admin')->group(function () {
             //Image Post
             Route::get('posts/{id}/images', 'ProjectsController@images')->name('posts.images');
             Route::post('posts/{id}/images/upload', 'ProjectsController@upload')->name('posts.images.upload');
+            Route::get('posts/{idProject}/images/{idImage}/delete', 'ProjectsController@destroyImage')->name('posts.images.delete');
 
             Route::post('posts/store', 'ProjectsController@store')->name('posts.store');
             Route::get('posts/{id}/edit', 'ProjectsController@edit')->name('posts.edit');

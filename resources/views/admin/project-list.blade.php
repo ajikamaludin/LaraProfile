@@ -67,7 +67,7 @@
                           </td>
                           <td>
                               <a href="{{ route('posts.edit', $project->id) }}" style="margin: 0px 10px 0px 10px"> <i class="fa fa-pencil"></i> Edit </a>
-                              <a href="{{ route('posts.edit', $project->id) }}" style="margin: 0px 10px 0px 10px"> <i class="fa fa-eye"></i> Add Image </a>
+                              <a href="{{ route('posts.images', $project->id) }}" style="margin: 0px 10px 0px 10px"> <i class="fa fa-eye"></i> Images </a>
                               <a href="{{ route('posts.destroy', $project->id) }}" onclick="return confirm('Yakin akan menghapus item ? item terkait akan ikut dihapus')"> <i class="nav-icon fa fa-trash"></i> Delete </a>
                           </td>
                         </tr>
