@@ -88,7 +88,9 @@ class ProjectsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $project = Project::find($id);
+        $categories = \App\Models\Category::all(['id','name']);
+        return view('admin.project-form',['project' => $project, 'categories' => $categories]);
     }
 
     /**
@@ -100,7 +102,32 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $project = Project::find($id);
+        $project->title = $request->title;
+        $project->slug = str_slug($project->title);
+        $project->description = $request->description;
+        $project->status = $request->status;
+        $project->id_category = $request->category;
+        if($request->hasFile('slideImg')){
+            $slide = $request->file('slideImg');
+            if($slide = $slide->move('storage/slide/', str_random(40).'.'.$slide->getClientOriginalExtension())){
+                $project->slide = $slide->getPathname();
+            }
+        }
+        $project->tahun_perancangan = $request->tahunPerancangan;
+        $project->tahun_pembangunan = $request->tahunPembangunan;
+        $project->luas_tanah = $request->luasTanah;
+        $project->luas_bangunan = $request->luasBangunan;
+
+        if($project->update()){
+            if($project->status){
+                return redirect()->route('posts.images', $project->id )->with('success','New Post has been Publish');
+            }else{
+                return redirect()->route('posts.images', $project->id )->with('success','New Post has been Saved');
+            }
+        }
+        return redirect()->route('posts.list')->with('error','Something went wrong');
     }
 
     /**
@@ -111,7 +138,14 @@ class ProjectsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $projectImages = ProjectImage::where(['id_project' => $id]);
+        if($projectImages->delete()){
+            $project = Project::find($id);
+            if($project->delete()){
+                return redirect()->route('posts.list')->with('success','Post has been Deleted');
+            }
+        }
+        return redirect()->route('posts.list')->with('error','Something went wrong');
     }
 
     /**

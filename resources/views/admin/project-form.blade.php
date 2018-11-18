@@ -51,7 +51,11 @@
                   {{-- description / textarea --}}
                 <div class="form-group">
                     <label>Description</label>
-                    <textarea class="form-control" rows="7" name="description" id="description" required></textarea>
+                    <textarea class="form-control" rows="7" name="description" id="description" required>
+                      @isset($project)
+                          {{ $project->description }}
+                      @endisset
+                    </textarea>
                   </div>
                   <div class="row">
                     <div class="col-md-6">
@@ -59,8 +63,16 @@
                       <div class="form-group">
                           <label>Status</label>
                           <select class="form-control" name="status" required>
-                            <option value="1" selected>Publish</option>
-                            <option value="0">Draft</option>
+                            <option value="1"
+                              @isset($project)
+                                  {{  $project->status == 1 ? 'selected' : '' }}
+                              @endisset
+                            >Publish</option>
+                            <option value="0" 
+                              @isset($project)
+                                  {{  $project->status == 0 ? 'selected' : '' }}
+                              @endisset
+                            >Draft</option>
                           </select>
                       </div>
                     </div>
@@ -73,10 +85,11 @@
                           <option value="0" disabled>Create a Category</option>
                         @else
                           @foreach ($categories as $index => $category)
-                            @if ($index == 1)
-                              <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
-                            @endif
-                              <option value="{{ $category->id }}">{{ $category->name }}</option>
+                              <option value="{{ $category->id }}" 
+                                @isset($project)
+                                  {{ $category->id == $project->id_category ? 'selected' : '' }}
+                                @endisset
+                                >{{ $category->name }}</option>
                           @endforeach
                         @endif
                       </select>
@@ -88,28 +101,28 @@
                       {{-- tahun perancangan  --}}
                       <div class="form-group">
                         <label>Tahun Perancangan</label>
-                        <input type="text" class="form-control" name="tahunPerancangan" maxlength="4">
+                        <input type="text" class="form-control" name="tahunPerancangan" maxlength="4" value="{{ isset($project) ? $project->tahun_perancangan : '' }}">
                       </div>
                     </div>
                     <div class="col-md-3">
                       {{-- tahun pembangunan  --}}
                       <div class="form-group">
                         <label>Tahun Pembangunan</label>
-                        <input type="text" class="form-control" name="tahunPembangunan" maxlength="4">
+                        <input type="text" class="form-control" name="tahunPembangunan" maxlength="4" value="{{ isset($project) ? $project->tahun_pembangunan : '' }}">
                       </div>
                     </div>
                     <div class="col-md-3">
                       {{-- luas tanah --}}
                       <div class="form-group">
                         <label>Luas Tanah</label>
-                        <input type="text" class="form-control" name="luasTanah" maxlength="4">
+                        <input type="text" class="form-control" name="luasTanah" maxlength="4" value="{{ isset($project) ? $project->luas_tanah : '' }}">
                       </div>
                     </div>
                     <div class="col-md-3">
                       {{-- luas bangunan --}}
                       <div class="form-group">
                         <label>Luas Bangunan</label>
-                        <input type="text" class="form-control" name="luasBangunan" maxlength="4">
+                        <input type="text" class="form-control" name="luasBangunan" maxlength="4" value="{{ isset($project) ? $project->luas_bangunan : '' }}">
                       </div>
                     </div>
                   </div>

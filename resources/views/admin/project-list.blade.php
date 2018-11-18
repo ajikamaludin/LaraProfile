@@ -57,7 +57,7 @@
                         <tr>
                           <td>{{ $project->id }}</td>
                           <td>{{ $project->title }}</td>
-                          <td>{{ 'Manusia' }}</td>
+                          <td>{{ $project->category->name }}</td>
                           <td>
                             @if ($project->status)
                               <span class="badge badge-success">Publish</span>
