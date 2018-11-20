@@ -6,7 +6,7 @@ $factory->define(App\Models\Project::class, function (Faker $faker) {
     $title = $faker->sentence($nbWords = 6, $variableNbWords = true);
     return [
         'title' => $title,
-        'slide' => str_replace('public/','',$faker->image('public/storage/posts')),
+        'slide' => str_replace('public/','',$faker->image('public/storage/slide')),
         'slug' => str_slug($title,'-'),
         'id_category' => '1',
         'status' => '1',

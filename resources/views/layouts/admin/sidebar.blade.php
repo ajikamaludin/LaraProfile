@@ -8,7 +8,7 @@
           <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          <a href="{{ route('admin.profile') }}" class="d-block">{{ Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -40,14 +40,14 @@
             </a>
           </li>
           <li class="nav-item active">
-            <a href="{{ route('pages.list') }}" class="nav-link {{ (Route::is('pages.list') || Route::is('pages.create') || Route::is('pages.edit') ) ? 'active' : '' }}">
+            <a href="{{ route('pages.list') }}" class="nav-link {{ (Route::is('pages.list') || Route::is('pages.create') || Route::is('pages.edit') || Route::is('pages.view') ) ? 'active' : '' }}">
               <i class="nav-icon fa fa-book"></i>
               <p>
                 Pages
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview {{ (Route::is('admin.settings') || Route::is('admin.profile') || Route::is('admin.profile.password')) ? 'menu-open' : '' }}">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-gear"></i>
               <p>
@@ -57,9 +57,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('admin.settings') }}" class="nav-link {{ (Route::is('admin.settings')) ? 'active' : '' }}">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>General</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.profile') }}" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Profile</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.profile.password') }}" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Change Password</p>
                 </a>
               </li>
             </ul>

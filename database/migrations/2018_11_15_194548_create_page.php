@@ -18,6 +18,8 @@ class CreatePage extends Migration
             $table->string('title', 255);
             $table->text('body');
             $table->text('slug');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

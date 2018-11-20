@@ -52,3 +52,7 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.cke_contents_ltr {
+    border: 1px dotted black;
+}

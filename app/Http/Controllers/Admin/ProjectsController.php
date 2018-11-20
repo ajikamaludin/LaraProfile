@@ -42,6 +42,9 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'slideImg' => 'image',
+        ]);
         $slide = $request->file('slideImg');
         $project = new Project();
         $project->title = $request->title;
@@ -158,21 +161,21 @@ class ProjectsController extends Controller
         $validator = Validator::make($request->all(), [
             'upload' => 'image',
         ]);
-
         $image = $request->file('upload');
         $name = str_random(40).'.'.$image->getClientOriginalExtension();
-        if($image = $image->move('storage/posts/', $name)){            
-            return json_encode([
-                'uploaded' => 1,
-                'fileName' => $image,
-                'url' => '/storage/posts/'.$name,
-            ]);
-        }else if($validator->fails()){
+        if($validator->fails()){
             return json_encode([
                 'uploaded' => 0,
                 'error' => [
                     'message' => 'Must be a image file'
                 ]
+            ]);
+        }
+        if($image = $image->move('storage/posts/', $name)){            
+            return json_encode([
+                'uploaded' => 1,
+                'fileName' => $image,
+                'url' => '/storage/posts/'.$name,
             ]);
         }
         return json_encode([
@@ -247,7 +250,7 @@ class ProjectsController extends Controller
         }
         //Error Response 500
         return response()->json([
-            'message' => 'Something went wrongs'
+            'Something went wrongs'
         ], 500);
     }
 

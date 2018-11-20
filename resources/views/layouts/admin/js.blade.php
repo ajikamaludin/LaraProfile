@@ -5,7 +5,7 @@
 <script>
     CKEDITOR.replace( 'description', {
         height: 700,
-        extraPlugins: 'filebrowser, uploadimage',
+        extraPlugins: 'filebrowser, uploadimage, image',
         filebrowserBrowseUrl: '/admin/image/browser',
         filebrowserUploadUrl: '/admin/image/upload',
         uploadUrl: '/admin/image/upload',
@@ -90,8 +90,64 @@ bgmodal.onclick = function() {
 
     //when upload was error
     myDropzone.on("error", function(file, response){
-        toastr.error(response.message)
+        toastr.error(response)
     });
   });
+</script>
+@endif
+
+{{-- PAGE --}}
+@if(Route::is('pages.create') || Route::is('pages.edit') )
+{{-- CKEditor --}}
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+@if(isset($page))
+    @foreach($bodys as $key => $value)
+<script>
+    CKEDITOR.inline( 'description{{ $key }}', {
+        height: 700,
+        extraPlugins: 'filebrowser, uploadimage',
+        filebrowserBrowseUrl: '/admin/image/browser',
+        filebrowserUploadUrl: '/admin/image/upload',
+        uploadUrl: '/admin/image/upload',
+    } );
+</script>
+    @endforeach
+@else
+<script>
+    CKEDITOR.inline( 'description0', {
+        height: 700,
+        extraPlugins: 'filebrowser, uploadimage',
+        filebrowserBrowseUrl: '/admin/image/browser',
+        filebrowserUploadUrl: '/admin/image/upload',
+        uploadUrl: '/admin/image/upload',
+    } );
+</script>
+@endif
+
+<script>
+ $(document).on('click','#plus-element', function(){
+   var count = $( ".count" ).length + 1;
+   if(count >= 4 ){
+    $(this).remove();
+     alert('Sorry this Version Only Support For 3 Columns');
+     return;
+   }
+   col = Math.ceil(12/count);
+   var master = $( "#master" ).clone();
+   master.find("#description0").val('Wow new Column ' + count);
+   console.log(count);
+   master.find("#description0").attr('id', 'description' + count);
+   master.find('.cke_textarea_inline').remove();
+   master.insertBefore( "#target" );
+   $( ".count" ).attr('class','col-md-'+col+' count');
+
+   CKEDITOR.inline( 'description' + count, {
+        height: 700,
+        extraPlugins: 'filebrowser, uploadimage',
+        filebrowserBrowseUrl: '/admin/image/browser',
+        filebrowserUploadUrl: '/admin/image/upload',
+        uploadUrl: '/admin/image/upload',
+    } );
+ });
 </script>
 @endif
