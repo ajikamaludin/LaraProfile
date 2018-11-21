@@ -105,7 +105,6 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
         $project = Project::find($id);
         $project->title = $request->title;
         $project->slug = str_slug($project->title);

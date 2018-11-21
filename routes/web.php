@@ -42,7 +42,7 @@ Route::namespace('Admin')->group(function () {
             
 
             //Menu
-            // Route::get('menu', 'MenuController@index')->name('menu.list');
+            Route::get('menu', 'MenuController@index')->name('menu.list');
             
             //Categories
             Route::get('categories', 'CategoriesController@index')->name('categories.list');
@@ -70,11 +70,6 @@ Route::namespace('Admin')->group(function () {
             //Profile
             Route::get('profile',  'SettingController@profile')->name('admin.profile');
             Route::post('save/profile', 'SettingController@storeProfile')->name('admin.profile.store');
-            
-            //Password
-            Route::get('password',  'SettingController@password')->name('admin.profile.password');
-            Route::post('save/password', 'SettingController@storePassword')->name('admin.profile.password.store');
-
             
         });
     });

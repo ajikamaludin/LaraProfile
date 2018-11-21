@@ -15,6 +15,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\User::class, function (Faker $faker) {
     return [
+        'picture' => str_replace('public/','', $faker->image($dir = 'public/storage/profile', $width = 160, $height = 160)),
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),

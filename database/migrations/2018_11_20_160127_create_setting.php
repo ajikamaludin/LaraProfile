@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGeneralSetting extends Migration
+class CreateSetting extends Migration
 {
     /**
      * Run the migrations.
@@ -15,12 +15,11 @@ class CreateGeneralSetting extends Migration
     {
         Schema::create('setting', function (Blueprint $table) {
             $table->string('logo', 255);
-            $table->text('alamat');
-            $table->string('kontak', 255);
+            $table->string('name', 255);
+            $table->string('address', 255);
+            $table->string('phone', 255);
             $table->string('email', 255);
-            $table->string('link_fb', 255);
-            $table->string('link_ig', 255);
-            $table->string('link_yt', 255);
+            $table->string('link', 255);
         });
     }
 

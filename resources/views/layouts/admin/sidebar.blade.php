@@ -5,7 +5,7 @@
     <div class="sidebar">
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset( Auth::user()->picture ) }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="{{ route('admin.profile') }}" class="d-block">{{ Auth::user()->name }}</a>
@@ -63,15 +63,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('admin.profile') }}" class="nav-link">
+                <a href="{{ route('menu.list') }}" class="nav-link {{ (Route::is('menu.list')) ? 'active' : '' }}">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Profile</p>
+                  <p>Menu</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('admin.profile.password') }}" class="nav-link">
+                <a href="{{ route('admin.profile') }}" class="nav-link {{ (Route::is('admin.profile')) ? 'active' : '' }}">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Change Password</p>
+                  <p>Profile</p>
                 </a>
               </li>
             </ul>
