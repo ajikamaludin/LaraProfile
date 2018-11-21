@@ -47,7 +47,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview {{ (Route::is('admin.settings') || Route::is('admin.profile') || Route::is('admin.profile.password')) ? 'menu-open' : '' }}">
+          <li class="nav-item has-treeview {{ (Route::is('admin.settings') || Route::is('admin.profile') || Route::is('menu.list') || Route::is('menu.create') || Route::is('menu.edit')) ? 'menu-open' : '' }}">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-gear"></i>
               <p>
@@ -63,7 +63,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('menu.list') }}" class="nav-link {{ (Route::is('menu.list')) ? 'active' : '' }}">
+                <a href="{{ route('menu.list') }}" class="nav-link {{ (Route::is('menu.list') || Route::is('menu.create') || Route::is('menu.edit')) ? 'active' : '' }}">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Menu</p>
                 </a>

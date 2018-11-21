@@ -43,7 +43,12 @@ Route::namespace('Admin')->group(function () {
 
             //Menu
             Route::get('menu', 'MenuController@index')->name('menu.list');
-            
+            Route::get('menu/create', 'MenuController@create')->name('menu.create');
+            Route::post('menu/store','MenuController@store')->name('menu.store');
+            Route::get('menu/{id}/edit', 'MenuController@edit')->name('menu.edit');
+            Route::post('menu/{id}/update', 'MenuController@update')->name('menu.update');
+            Route::get('menu/{id}/delete', 'MenuController@destroy')->name('menu.destroy');
+
             //Categories
             Route::get('categories', 'CategoriesController@index')->name('categories.list');
             Route::get('categories/create', 'CategoriesController@create')->name('categories.create');

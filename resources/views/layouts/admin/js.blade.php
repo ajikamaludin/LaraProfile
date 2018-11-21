@@ -151,3 +151,16 @@ bgmodal.onclick = function() {
  });
 </script>
 @endif
+
+@if(Route::is('menu.create') || Route::is('menu.edit'))
+<script>
+    $('#active-form').val('ext-link');
+    $(document).on('click','#page-link', function(){
+        $('#active-form').val('page');
+    })
+    $(document).on('click','#ext-link', function(){
+        $('#active-form').val('ext-link');
+    })
+
+</script>
+@endif
