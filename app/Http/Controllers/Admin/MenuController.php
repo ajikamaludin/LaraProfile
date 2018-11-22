@@ -47,6 +47,9 @@ class MenuController extends Controller
         if($request->active == 'page'){
             $menu->link = json_encode(['link' => $request->page,'status' => 'page']);
         }else if($request->active = 'ext-link'){
+            if(empty($request->url)){
+                $request->url = "#";
+            }
             $menu->link = json_encode(['link' => $request->url,'status' => 'link']);
         }
         if($menu->save()){
@@ -99,6 +102,9 @@ class MenuController extends Controller
         if($request->active == 'page'){
             $menu->link = json_encode(['link' => $request->page,'status' => 'page']);
         }else if($request->active = 'ext-link'){
+            if(empty($request->url)){
+                $request->url = "#";
+            }
             $menu->link = json_encode(['link' => $request->url,'status' => 'link']);
         }
         if($menu->update()){
