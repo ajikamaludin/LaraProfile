@@ -41,8 +41,12 @@
                       <span class="text">{{ $menu->name }}</span>
                       <!-- General tools such as edit or delete-->
                       <div class="tools">
+                        @if($menu->name != 'Project')
                         <a href="{{ route('menu.edit', $menu->id ) }}"><i class="fa fa-edit"></i> Edit </a>
                         <a href="{{ route('menu.destroy', $menu->id ) }}" onclick="return confirm('Are you sure you want to delete the item?')"><i class="fa fa-trash-o"></i> Delete </a>
+                        @else
+                          <p>Uneditable</p>
+                        @endif
                       </div>
                     </li>    
                   @endforeach

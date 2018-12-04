@@ -13,14 +13,24 @@
 
 //Front Route
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/page/{slug}', 'HomeController@page')->name('page');
+Route::get('/projects', 'HomeController@project')->name('project');
+Route::get('/project/{slug}', 'HomeController@projectDetail')->name('project.detail');
+Route::get('/projects/{id}', 'HomeController@projectByCategories')->name('project.category');
+
 Auth::routes();
 
 Route::namespace('Admin')->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::prefix('admin')->group(function () {
             
-            Route::get('/', 'DashboardController@index');
-            Route::get('dashboard', 'DashboardController@index')->name('admin.dashboard');
+            Route::get('/', function(){
+                return redirect()->route('posts.list');
+            });
+            
+            Route::get('dashboard', function(){
+                return redirect()->route('posts.list');
+            })->name('admin.dashboard');
 
             //CKeditor Project // Globals
             Route::post('image/upload', 'ProjectsController@ckupload');
@@ -79,5 +89,3 @@ Route::namespace('Admin')->group(function () {
         });
     });
 });
-
-Route::get('page/{slug}', 'FrontController@page')->name('front.page');

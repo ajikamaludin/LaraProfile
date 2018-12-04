@@ -15,14 +15,14 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item active">
+          {{-- <li class="nav-item active">
             <a href="{{ route('admin.dashboard') }}" class="nav-link {{ Request::is('admin') ? 'active' : '' }} {{ Route::is('admin.dashboard') ? 'active' : '' }}">
               <i class="nav-icon fa fa-dashboard"></i>
               <p>
                 Dashboard
               </p>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item active">
           <a href="{{ route('posts.list') }}" class="nav-link {{ (Route::is('posts.list') || Route::is('posts.create') || Route::is('posts.edit') || Route::is('posts.images')) ? 'active' : '' }}">
               <i class="nav-icon fa fa-newspaper-o"></i>

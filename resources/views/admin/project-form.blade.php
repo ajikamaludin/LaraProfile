@@ -99,31 +99,31 @@
                   <div class="row">
                     <div class="col-md-3">
                       {{-- tahun perancangan  --}}
-                      <div class="form-group">
+                      {{-- <div class="form-group">
                         <label>Tahun Perancangan</label>
                         <input type="text" class="form-control" name="tahunPerancangan" maxlength="4" value="{{ isset($project) ? $project->tahun_perancangan : '' }}">
                       </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3"> --}}
                       {{-- tahun pembangunan  --}}
-                      <div class="form-group">
+                      {{-- <div class="form-group">
                         <label>Tahun Pembangunan</label>
                         <input type="text" class="form-control" name="tahunPembangunan" maxlength="4" value="{{ isset($project) ? $project->tahun_pembangunan : '' }}">
                       </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3"> --}}
                       {{-- luas tanah --}}
-                      <div class="form-group">
+                      {{-- <div class="form-group">
                         <label>Luas Tanah</label>
                         <input type="text" class="form-control" name="luasTanah" maxlength="4" value="{{ isset($project) ? $project->luas_tanah : '' }}">
                       </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3"> --}}
                       {{-- luas bangunan --}}
-                      <div class="form-group">
+                      {{-- <div class="form-group">
                         <label>Luas Bangunan</label>
                         <input type="text" class="form-control" name="luasBangunan" maxlength="4" value="{{ isset($project) ? $project->luas_bangunan : '' }}">
-                      </div>
+                      </div> --}}
                     </div>
                   </div>
                 </div>
