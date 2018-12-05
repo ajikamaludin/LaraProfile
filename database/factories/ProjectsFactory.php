@@ -8,7 +8,7 @@ $factory->define(App\Models\Project::class, function (Faker $faker) {
         'title' => $title,
         'slide' => str_replace('public/','',$faker->image('public/storage/slide')),
         'slug' => str_slug($title,'-'),
-        'id_category' => '1',
+        'id_category' => '2',
         'status' => '1',
         'tahun_perancangan' => $faker->year(),
         'tahun_pembangunan' => $faker->year(),

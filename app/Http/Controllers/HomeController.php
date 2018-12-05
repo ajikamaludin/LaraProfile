@@ -45,11 +45,18 @@ class HomeController extends Controller
     public function projectDetail($slug)
     {
         $project = Project::where(['slug' => $slug])->first();
-        dd($project);
-        return view('frontend.project-grid',[
+        return view('frontend.project-detail',[
             'setting' => $this->getSetting(), 
             'menus' => $this->getMenu(),
             'project' => $project
+        ]);
+    }
+
+    public function page($slug)
+    {
+        return view('frontend.page',[
+            'setting' => $this->getSetting(), 
+            'menus' => $this->getMenu(),
         ]);
     }
 
@@ -71,6 +78,9 @@ class HomeController extends Controller
             $menu->data = $data;
             
             if($menu->data->link == "projects"){
+                $menu->data->link = route('project');
+            }
+            if($menu->data->link == "http://projects"){
                 $menu->data->link = route('project');
             }
         }

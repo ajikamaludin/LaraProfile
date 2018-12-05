@@ -67,6 +67,7 @@
  <script src="{{ asset('assets/js/jquery-3.3.1.slim.min.js') }}" ></script>
  <script src="{{ asset('assets/js/popper.min.js') }}" ></script>
  <script src="{{ asset('assets/js/bootstrap.min.js') }}" ></script>
+ @yield('js')
  <!-- <script src="assets/js/jquery-cache.js"></script>
  <script>
   $(function () {
