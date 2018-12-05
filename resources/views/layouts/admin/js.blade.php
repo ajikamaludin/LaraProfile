@@ -105,7 +105,7 @@ bgmodal.onclick = function() {
 <script>
     CKEDITOR.inline( 'description{{ $key }}', {
         height: 700,
-        extraPlugins: 'filebrowser, uploadimage',
+        extraPlugins: 'filebrowser, uploadimage, sourcedialog',
         filebrowserBrowseUrl: '/admin/image/browser',
         filebrowserUploadUrl: '/admin/image/upload',
         uploadUrl: '/admin/image/upload',

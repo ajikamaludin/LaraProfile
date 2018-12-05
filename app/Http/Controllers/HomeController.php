@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Project;
 use App\Models\Category;
 use App\Models\Menu;
+use App\Models\Page;
 
 class HomeController extends Controller
 {
@@ -54,9 +55,15 @@ class HomeController extends Controller
 
     public function page($slug)
     {
+        $page = Page::where(['slug' => $slug])->first();
+        $body = json_decode($page->body);
+        $col= 12 / $body->column;
         return view('frontend.page',[
             'setting' => $this->getSetting(), 
             'menus' => $this->getMenu(),
+            'page' => $page,
+            'col' => $col,
+            'body' => $body->body,
         ]);
     }
 

@@ -7,9 +7,9 @@
  <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86">
 
  <!-- Bootstrap CSS -->
- <link rel="stylesheet" href="assets/css/bootstrap.css" />
- <link rel="stylesheet" href="assets/css/style.css" />
- <link rel="stylesheet" href="assets/css/all.min.css" />
+ <link rel="stylesheet" href="/assets/css/bootstrap.css" />
+ <link rel="stylesheet" href="/assets/css/style.css" />
+ <link rel="stylesheet" href="//assets/css/all.min.css" />
 
  <title>Junge Architect</title>
 </head>
@@ -21,7 +21,7 @@
   <header class="navbar d-flex align-items-end p-0">
    <div class="header-logo mx-auto mx-lg-1" style="max-width:100%">
     <a href="slider.html" class="navbar-brand">
-     <img src="assets/img/logo/header.png" alt="" srcset="">
+     <img src="/assets/img/logo/header.png" alt="" srcset="">
     </a>
    </div>
    <nav class="mb-1 mx-auto mx-lg-1">
@@ -44,33 +44,10 @@
     <div class="col-lg-4 col-12 my-auto">
      <div class="row mx-0">
       <div class="logo mx-auto">
-       <img src="assets/img/logo/junge-square.PNG" alt="" srcset="">
+       <img src="/assets/img/logo/junge-square.PNG" alt="" srcset="">
       </div>
       <p class="text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam consequuntur esse nam quod nesciunt deserunt blanditiis vitae, voluptate alias ipsa reiciendis unde consectetur necessitatibus soluta animi excepturi. Praesentium, at velit! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio pariatur laboriosam ducimus reiciendis, animi veniam corporis quisquam?</p>
      </div>
-     <!-- <div class="row mx-0">
-      <h3 class="text-black d-inline-block">INTERSHIP & TEAMS</h3> <br>
-     </div>
-     <div class="table-teams">
-      <table class="text-center" width="100%">
-       <tr>
-        <td><img src="assets/img/team1.PNG" alt="" srcset=""></td>
-        <td><img src="assets/img/team1.PNG" alt="" srcset=""></td>
-        <td><img src="assets/img/team1.PNG" alt="" srcset=""></td>
-        <td><img src="assets/img/team1.PNG" alt="" srcset=""></td>
-        <td><img src="assets/img/team1.PNG" alt="" srcset=""></td>
-        <td><img src="assets/img/team1.PNG" alt="" srcset=""></td>
-       </tr>
-       <tr>
-        <td><img src="assets/img/team1.PNG" alt="" srcset=""></td>
-        <td><img src="" alt="" srcset=""></td>
-        <td><img src="" alt="" srcset=""></td>
-        <td><img src="" alt="" srcset=""></td>
-        <td><img src="" alt="" srcset=""></td>
-        <td><img src="" alt="" srcset=""></td>
-       </tr>
-      </table>
-     </div> -->
     </div>
     <div class="mid col-lg-6 col-12 my-auto">
      <div class="profil">
@@ -107,7 +84,7 @@
     </div>
     <div class="col-lg-2 col-12">
      <div class="pp">
-      <img src="assets/img/IMG_0432-min.jpg" style="object-fit: cover;width: 100%;height: 100%" alt="" srcset="">
+      <img src="/assets/img/IMG_0432-min.jpg" style="object-fit: cover;width: 100%;height: 100%" alt="" srcset="">
      </div>
     </div>
    </div>
@@ -142,9 +119,9 @@
 
  <!-- Optional JavaScript -->
  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
- <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
+ <script src="/assets/js/jquery-3.3.1.slim.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
- <script src="assets/js/bootstrap.min.js"></script>
+ <script src="/assets/js/bootstrap.min.js"></script>
 </body>
 
 </html>
