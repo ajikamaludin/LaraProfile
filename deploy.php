@@ -48,8 +48,8 @@ after('deploy:failed', 'deploy:unlock');
 // Migrate database before symlink new release.
 
 before('deploy:symlink', 'artisan:migrate');
-after('deploy', 'composer');
-after('deploy', 'rmdir');
-after('deploy', 'mkdir');
-after('deploy', 'migrate:seed');
+// after('deploy', 'composer');
+// after('deploy', 'rmdir');
+// after('deploy', 'mkdir');
+// after('deploy', 'migrate:seed');
 
