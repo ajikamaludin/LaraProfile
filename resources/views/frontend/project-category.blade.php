@@ -10,7 +10,7 @@
    <div class="row mx-0 h-100 d-flex justify-content-between">
     
     @foreach ($categories as $category)
-    <div class="project-categ col-sm-6 col-6 col-md-6 col-lg-3 my-lg-3">
+    <div class="project-categ col-sm-6 col-6 col-md-6 col-lg-3 my-lg-2">
      <div class="cont-category py-lg-4">
       <a href="{{ route('project.category', $category->id) }}">
        <div class="image-category">

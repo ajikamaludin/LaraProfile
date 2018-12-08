@@ -1,7 +1,7 @@
 @extends('layouts.frontend.master')
 @section('content')
  <!-- Content / Article -->
- <div class="intro row h-100 m-0">
+ <div class="intro row h-100 m-0" id="intros">
   <div class="img-intro my-auto col">
    <img src="assets/img/loader.svg" class="" style="width:25%;height:25%" alt="" srcset="">
   </div>
@@ -23,7 +23,7 @@
         <div class="img-crsl">
           <img class="d-block" style="object-fit: cover;width: 100%;height: 100%" src="{{ asset($item->slide) }}" alt="First slide">
         <div class="carousel-caption atas text-left text-dark p-3">
-          <h5 class="font-weight-bold mb-0">{{ $item->title }}</h5>
+          <a href="{{ route('project.detail', $item->slug) }}"> <h5 class="font-weight-bold mb-0">{{ $item->title }}</h5> </a>
         </div>
         <div class="carousel-caption text-left text-dark p-3">
           <p class="mb-0">{{ str_limit($item->description, 65) }}</p>
@@ -46,4 +46,26 @@
    </div>
   </article>
  </div>
+@endsection
+@section('js')
+<script>
+  var hasSeenGreeting = localStorage.getItem("greeting");
+  if (!hasSeenGreeting) {
+   document.getElementById("intros");
+   localStorage.setItem("greeting", "true");
+  } else {
+   document.getElementById("intros").style.display = "none";
+  }
+  var hours = 24; // Reset when storage is more than 24hours
+  var now = new Date().getTime();
+  var setupTime = localStorage.getItem('setupTime');
+  if (setupTime == null) {
+   localStorage.setItem('setupTime', now)
+  } else {
+   if (now - setupTime > hours * 60 * 60 * 1000) {
+    localStorage.clear()
+    localStorage.setItem('setupTime', now);
+   }
+  }
+ </script>
 @endsection
