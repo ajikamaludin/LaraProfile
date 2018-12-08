@@ -158,9 +158,6 @@
   font-weight: bold;
   font-size: 16px
  }
- .vr {
-  /* height: 85%; */
- }
  
  /* Contact */
  .table-teams img {
@@ -347,9 +344,9 @@
   }
  }
  @media screen and (max-width : 1366px) {
-  .vr iframe {
-  /* height: 400px */
-  }
+  /* .vr iframe {
+  height: 400px
+  } */
  }
  @media screen and (min-width: 325px) {
   .preview {
@@ -366,7 +363,7 @@
   }
  }
  @media screen and (min-width: 1140px) {
-  .vr {
+  .vr iframe {
   height: 350px
   }
   article.contacts {
@@ -376,7 +373,12 @@
   height: 365px
   }
  }
- @media screen and (min-width: 1441px) {
+ @media screen and (min-width : 1366px) {
+  .vr iframe {
+   height: 350px
+  }
+ }
+ @media screen and (min-width : 1441px) {
   .container.header {
   margin-top: 65px
   }
@@ -392,7 +394,7 @@
   div.preview {
   height: 520px
   }
-  .vr {
+  .vr iframe {
   height: 450px
   }
   div.image-category {
