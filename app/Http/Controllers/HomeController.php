@@ -34,7 +34,7 @@ class HomeController extends Controller
     public function projectByCategories($id)
     {
         $category = Category::find($id);
-        $projects = Project::where(['id_category' => $id])->paginate(12);
+        $projects = Project::where(['id_category' => $id])->paginate(8);
         return view('frontend.project-grid',[
             'setting' => $this->getSetting(), 
             'menus' => $this->getMenu(),
