@@ -10,11 +10,9 @@
   <article>
    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-interval="3000" data-ride="carousel">
     <ol class="carousel-indicators">
-     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-     <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-     <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+    @foreach ($projects as $index => $item)
+     <li data-target="#carouselExampleIndicators" data-slide-to="{{ $index}}" class="{{ ($index == 1) ? 'active' : '' }}"></li>
+    @endforeach
     </ol>
     
         
