@@ -33,6 +33,7 @@
     <div class="col-lg-4 col-12 order-last order-lg-first">
      <div class="judul-artikel">
       <h3>{{ $project->title }}</h3>
+      <h4 class="text-muted">{{ $project->subtitle }}</h4>
      </div>
      <div class="details">
       {{-- <table class="w-100">

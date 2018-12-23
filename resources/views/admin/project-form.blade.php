@@ -35,6 +35,11 @@
                     <label for="name">Title</label>
                     <input type="text" class="form-control" id="title" name="title" minlength="4" required value="{{ isset($project) ? $project->title : '' }}">
                   </div>
+                  {{-- sub title --}}
+                  <div class="form-group">
+                    <label for="name">Sub Title</label>
+                    <input type="text" class="form-control" id="subtitle" name="subtitle" minlength="4" required value="{{ isset($project) ? $project->subtitle : '' }}">
+                  </div>
                   {{-- slide / cover--}}
                   <div class="form-group">
                     <label for="slide">Slide Image</label>
@@ -78,53 +83,59 @@
                     </div>
                     <div class="col-md-6">
                       {{-- category --}}
-                  <div class="form-group">
-                      <label>Category</label>
-                      <select class="form-control" name="category" required>
-                        @if ($categories->count() <= 0)
-                          <option value="0" disabled>Create a Category</option>
-                        @else
-                          @foreach ($categories as $index => $category)
-                              <option value="{{ $category->id }}" 
-                                @isset($project)
-                                  {{ $category->id == $project->id_category ? 'selected' : '' }}
-                                @endisset
-                                >{{ $category->name }}</option>
-                          @endforeach
-                        @endif
-                      </select>
-                  </div>
+                      <div class="form-group">
+                          <label>Category</label>
+                          <select class="form-control" name="category" required>
+                            @if ($categories->count() <= 0)
+                              <option value="0" disabled>Create a Category</option>
+                            @else
+                              @foreach ($categories as $index => $category)
+                                  <option value="{{ $category->id }}" 
+                                    @isset($project)
+                                      {{ $category->id == $project->id_category ? 'selected' : '' }}
+                                    @endisset
+                                    >{{ $category->name }}</option>
+                              @endforeach
+                            @endif
+                          </select>
+                      </div>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-3">
-                      {{-- tahun perancangan  --}}
-                      {{-- <div class="form-group">
-                        <label>Tahun Perancangan</label>
-                        <input type="text" class="form-control" name="tahunPerancangan" maxlength="4" value="{{ isset($project) ? $project->tahun_perancangan : '' }}">
+                    <div class="col-md-6">
+                      {{-- status bangunan --}}
+                      <div class="form-group">
+                        <label for="name">Status Of Building</label>
+                        <input type="text" class="form-control" id="status_bangunan" name="status_bangunan" minlength="4" required value="{{ isset($project) ? $project->status_bangunan : '' }}">
                       </div>
                     </div>
-                    <div class="col-md-3"> --}}
-                      {{-- tahun pembangunan  --}}
-                      {{-- <div class="form-group">
-                        <label>Tahun Pembangunan</label>
-                        <input type="text" class="form-control" name="tahunPembangunan" maxlength="4" value="{{ isset($project) ? $project->tahun_pembangunan : '' }}">
+                    <div class="col-md-6">
+                      {{-- category --}}
+                      <div class="form-group">
+                        <label for="name">Owner</label>
+                        <input type="text" class="form-control" id="owner" name="owner" minlength="4" required value="{{ isset($project) ? $project->owner : '' }}">
                       </div>
                     </div>
-                    <div class="col-md-3"> --}}
-                      {{-- luas tanah --}}
-                      {{-- <div class="form-group">
-                        <label>Luas Tanah</label>
-                        <input type="text" class="form-control" name="luasTanah" maxlength="4" value="{{ isset($project) ? $project->luas_tanah : '' }}">
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      {{-- status bangunan --}}
+                      <div class="form-group">
+                        <label for="name">Tahun Bangun</label>
+                        <input type="text" class="form-control" id="tahun" name="tahun" minlength="4" required value="{{ isset($project) ? $project->tahun : '' }}">
                       </div>
                     </div>
-                    <div class="col-md-3"> --}}
-                      {{-- luas bangunan --}}
-                      {{-- <div class="form-group">
-                        <label>Luas Bangunan</label>
-                        <input type="text" class="form-control" name="luasBangunan" maxlength="4" value="{{ isset($project) ? $project->luas_bangunan : '' }}">
-                      </div> --}}
+                    <div class="col-md-6">
+                      {{-- category --}}
+                      <div class="form-group">
+                        <label for="name">Scope</label>
+                        <input type="text" class="form-control" id="scope" name="scope" minlength="4" required value="{{ isset($project) ? $project->scope : '' }}">
+                      </div>
                     </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Principal Architect</label>
+                    <input type="text" class="form-control" id="architect" name="architect" minlength="4" required value="{{ isset($project) ? $project->architect : '' }}">
                   </div>
                 </div>
                 <!-- /.card-body -->

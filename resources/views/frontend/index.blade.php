@@ -13,6 +13,8 @@
      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+     <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+     <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
     </ol>
     
         
@@ -26,7 +28,11 @@
           <a href="{{ route('project.detail', $item->slug) }}"> <h5 class="font-weight-bold mb-0">{{ $item->title }}</h5> </a>
         </div>
         <div class="carousel-caption text-left text-dark p-3">
-          <p class="mb-0">{{ str_limit($item->description, 65) }}</p>
+          <p class="mb-0">
+            Scope : {{ $item->scope }} <br>
+            Tahun : {{ $item->tahun }} <br>
+            Owner : {{ $item->owner }} <br>
+          </p>
         </div>
         </div>
       </div>

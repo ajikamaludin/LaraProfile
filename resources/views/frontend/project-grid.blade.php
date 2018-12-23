@@ -24,7 +24,8 @@
        </div>
        <div class="mb-0 font-weight-bold">{{ $project->title }}</div>
        <div class="dtl">
-        <div class="">{{ str_limit($project->description, 65) }}</div>
+          {{-- TODO: add something here --}}
+        <div class="">{{ $project->subtitle }}</div>
         </table>
        </div>
       </a>

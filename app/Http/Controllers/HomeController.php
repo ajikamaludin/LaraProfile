@@ -13,7 +13,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $projects = Project::orderBy('id', 'desc')->limit(3)->get();
+        $projects = Project::orderBy('created_at', 'desc')->limit(5)->get();
         return view('frontend.index',[
             'setting' => $this->getSetting(), 
             'menus' => $this->getMenu(),
@@ -34,7 +34,7 @@ class HomeController extends Controller
     public function projectByCategories($id)
     {
         $category = Category::find($id);
-        $projects = Project::where(['id_category' => $id])->paginate(8);
+        $projects = Project::orderBy('created_at','DESC')->where(['id_category' => $id])->paginate(8);
         return view('frontend.project-grid',[
             'setting' => $this->getSetting(), 
             'menus' => $this->getMenu(),

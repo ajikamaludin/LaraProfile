@@ -52,6 +52,14 @@ class ProjectsController extends Controller
         $project->description = $request->description;
         $project->status = $request->status;
         $project->id_category = $request->category;
+
+        $project->subtitle = $request->subtitle;
+        $project->status_bangunan = $request->status_bangunan;
+        $project->owner = $request->owner;
+        $project->tahun = $request->tahun;
+        $project->scope = $request->scope;
+        $project->architect = $request->architect;
+
         if($slide = $slide->move('storage/slide/', str_random(40).'.'.$slide->getClientOriginalExtension())){
             $project->slide = $slide->getPathname();
 
@@ -111,6 +119,14 @@ class ProjectsController extends Controller
         $project->description = $request->description;
         $project->status = $request->status;
         $project->id_category = $request->category;
+        
+        $project->subtitle = $request->subtitle;
+        $project->status_bangunan = $request->status_bangunan;
+        $project->owner = $request->owner;
+        $project->tahun = $request->tahun;
+        $project->scope = $request->scope;
+        $project->architect = $request->architect;
+
         if($request->hasFile('slideImg')){
             $slide = $request->file('slideImg');
             if($slide = $slide->move('storage/slide/', str_random(40).'.'.$slide->getClientOriginalExtension())){

@@ -22,7 +22,7 @@ class CreateProjects extends Migration
             $table->boolean('status');
             $table->text('slug');
 
-            //penting ngak ?
+            //penting ngak ? ngak penting
             $table->string('tahun_perancangan', 100)->nullable();
             $table->string('tahun_pembangunan', 100)->nullable();
             $table->string('luas_tanah', 100)->nullable();

@@ -294,6 +294,9 @@
  .thumb img.selected {
   filter: none;
  }
+ .img-thumbs {
+  overflow-x: scroll
+ }
  /* text left */
  div.details {
   font-size: 10px;
