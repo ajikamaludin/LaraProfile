@@ -54,7 +54,7 @@
 @section('js')
 <script>
   $('.carousel').carousel({
-   interval: 2750,
+   interval: 2000,
   });
   var hasSeenGreeting = localStorage.getItem("greeting");
   if (!hasSeenGreeting) {
