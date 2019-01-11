@@ -36,14 +36,14 @@
       <h4 class="text-muted">{{ $project->subtitle }}</h4>
      </div>
      <div class="details">
-      {{-- <table class="w-100">
+      <table class="w-100">
        <tr><td colspan="2"></td></tr>
-       <tr><td>Scope</td> <td>Perencanaan Dan Pembangunan</td></tr>
-       <tr><td>Principal Architect</td> <td>Sigit Pramana Putra,ST</td></tr>
-       <tr><td>Year</td> <td>2017</td></tr>
-       <tr><td>Status</td> <td>Terbangun</td></tr>
-       <tr><td>Owner</td> <td>Mr.Gilang Prasetya</td></tr>
-      </table> --}}
+       <tr><td>Scope</td> <td>{{ $project->scope  }}</td></tr>
+       <tr><td>Principal Architect</td> <td>{{ $project->architect  }}</td></tr>
+       <tr><td>Year</td> <td>{{ $project->tahun  }}</td></tr>
+       <tr><td>Status</td> <td>{{ $project->status_bangunan  }}</td></tr>
+       <tr><td>Owner</td> <td>{{ $project->owner  }}</td></tr>
+      </table>
      </div>
      <div class="article content text-justify">
       {!! $project->description !!}
