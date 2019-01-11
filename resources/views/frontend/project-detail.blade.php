@@ -23,9 +23,9 @@
       <div id="imgtext"></div>
      </div>
      <div class="custom-control-inline py-1 px-0">
-      @foreach ($project->images as $image)
+      @foreach ($project->images as $index => $image)
          <div class="thumb">
-          <img src="{{ asset($image->file_name) }}" style="height:100%" onclick="select(this);">
+          <img src="{{ asset($image->file_name) }}" style="height:100%" onclick="select(this);"  class="{{ ($index == 0) ? 'selectedIMG' : ''}}">
          </div>
       @endforeach
      </div>
@@ -60,5 +60,9 @@
     var expandImg = document.getElementById("expandedImg");
     expandImg.src = imgs.src;
   }
+  $('img').click(function () {
+   $('.thumb img').removeClass('selectedIMG');
+   $(this).toggleClass('selectedIMG');
+  });
   </script>
 @endsection

@@ -281,7 +281,8 @@
   overflow: hidden;
  }
  .thumb {
-  height: 50px
+  height: 50px;
+  margin-right:5px
  }
  .thumb img {
   filter: grayscale(100);
@@ -297,6 +298,10 @@
  .img-thumbs {
   overflow-x: scroll
  }
+ img.selectedIMG {
+  filter: none!important
+ }
+ 
  /* text left */
  div.details {
   font-size: 10px;

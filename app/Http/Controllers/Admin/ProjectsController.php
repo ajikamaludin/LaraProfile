@@ -277,7 +277,6 @@ class ProjectsController extends Controller
      */
     public function destroyImage($idProject, $idImage)
     {
-        // TODO : remove image from database, return 200
         $projectImage = ProjectImage::where(['id_project' => $idProject,'id' => $idImage]);
         if($projectImage->count() == 1 && $projectImage->delete()){
             return response()->json([
