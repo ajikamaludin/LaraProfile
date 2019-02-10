@@ -8,7 +8,7 @@
     <ol class="breadcrumb">
      <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
      <li class="breadcrumb-item"><a href="{{ route('project') }}">Project</a></li>
-     <li class="breadcrumb-item"><a href="{{ url()->previous() }}">Residential</a></li>
+    <li class="breadcrumb-item"><a href="{{ url()->previous() }}">{{ $project->category->name }}</a></li>
      <li class="breadcrumb-item active" aria-current="page">{{ $project->title }}</li>
     </ol>
    </nav>
