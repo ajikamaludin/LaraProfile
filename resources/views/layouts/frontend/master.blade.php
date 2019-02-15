@@ -10,7 +10,7 @@
  <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css')}}" />
  <link rel="stylesheet" href="{{ asset('assets/css/all.min.css')}}" />
  <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}" />
-
+ <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}" />
  <title>{{ $setting->name }}</title>
 </head>
 
@@ -242,19 +242,19 @@
       font-weight:bold;
       text-transform:uppercase;
     }
-    .error-wpcp {		background:#ffecec url('http://www.urbane.co.id/wp-content/plugins/wp-content-copy-protector/images/error.png') no-repeat 10px 50%;
+    .error-wpcp {		background:#ffecec url('{{ asset('assets/img/error.png') }}') no-repeat 10px 50%;
       border:1px solid #f5aca6;
     }
     .success {
-      background:#e9ffd9 url('http://www.urbane.co.id/wp-content/plugins/wp-content-copy-protector/images/success.png') no-repeat 10px 50%;
+      background:#e9ffd9 url('{{ asset('assets/img/success.png') }}') no-repeat 10px 50%;
       border:1px solid #a6ca8a;
     }
     .warning-wpcp {
-      background:#ffecec url('http://www.urbane.co.id/wp-content/plugins/wp-content-copy-protector/images/warning.png') no-repeat 10px 50%;
+      background:#ffecec url('{{ asset('assets/img/warning.png') }}') no-repeat 10px 50%;
       border:1px solid #f5aca6;
     }
     .notice {
-      background:#e3f7fc url('http://www.urbane.co.id/wp-content/plugins/wp-content-copy-protector/images/notice.png') no-repeat 10px 50%;
+      background:#e3f7fc url('{{ asset('assets/img/notice.png') }}') no-repeat 10px 50%;
       border:1px solid #8ed9f6;
     }
       </style>

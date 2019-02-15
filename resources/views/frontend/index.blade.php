@@ -54,7 +54,7 @@
 @section('js')
 <script>
   $('.carousel').carousel({
-   interval: 2000,
+   interval: 3000,
   });
   var hasSeenGreeting = localStorage.getItem("greeting");
   if (!hasSeenGreeting) {
@@ -63,7 +63,7 @@
   } else {
    document.getElementById("intros").style.display = "none";
   }
-  var hours = 0.2; // Reset when storage is more than 24hours
+  var hours = 0.03; // Reset when storage is more than 24hours
   var now = new Date().getTime();
   var setupTime = localStorage.getItem('setupTime');
   if (setupTime == null) {
